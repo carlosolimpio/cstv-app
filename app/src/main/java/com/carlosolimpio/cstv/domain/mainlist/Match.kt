@@ -1,6 +1,7 @@
 package com.carlosolimpio.cstv.domain.mainlist
 
 data class Match(
+    val id: Long,
     val status: MatchStatus,
     val matchTime: String,
     val league: League,

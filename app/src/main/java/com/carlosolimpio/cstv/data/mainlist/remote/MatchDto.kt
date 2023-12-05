@@ -3,6 +3,7 @@ package com.carlosolimpio.cstv.data.mainlist.remote
 import com.google.gson.annotations.SerializedName
 
 data class MatchDto(
+    val id: Long,
     val status: String,
     @SerializedName("begin_at") val matchTime: String,
     @SerializedName("league") val league: LeagueDto,

@@ -2,6 +2,7 @@ package com.carlosolimpio.cstv.di
 
 import com.carlosolimpio.cstv.data.mainlist.MainListRepositoryImpl
 import com.carlosolimpio.cstv.data.mainlist.remote.MainListService
+import com.carlosolimpio.cstv.data.mainlist.remote.paging.MatchesPagingSource
 import com.carlosolimpio.cstv.domain.mainlist.MainListRepository
 import dagger.Module
 import dagger.Provides

@@ -5,15 +5,16 @@ import com.carlosolimpio.cstv.domain.mainlist.League
 import com.carlosolimpio.cstv.domain.mainlist.Match
 import com.carlosolimpio.cstv.domain.mainlist.Team
 
-fun List<MatchDto>.mapMatches() = this.map { it.toMatch() }
+fun List<MatchDto>.mapToMatch() = this.map { it.toMatch() }
 
 fun MatchDto.toMatch(): Match {
     val teamA = teams.getOrNull(0)
     val teamB = teams.getOrNull(1)
 
     return Match(
+        id = id,
         status = enumValueOf(status.uppercase()),
-        matchTime = matchTime, // parse to a proper string
+        matchTime = matchTime ?: "", // parse to a proper string
         league = League(
             name = league.name,
             imageUrl = league.imageUrl ?: ""

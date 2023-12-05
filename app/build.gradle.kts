@@ -78,11 +78,17 @@ dependencies {
     // Glide
     implementation("com.github.bumptech.glide:glide:4.16.0")
 
+    // Paging
+    implementation("androidx.paging:paging-runtime-ktx:3.2.1")
+
+
     // Testing
     testImplementation("junit:junit:4.13.2")
 //    testImplementation("org.mockito:mockito-core:2.25.0")
     testImplementation("io.mockk:mockk:1.13.7")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
     testImplementation("app.cash.turbine:turbine:1.0.0")
+    testImplementation("androidx.paging:paging-common-ktx:3.2.1")
+
     testImplementation("androidx.arch.core:core-testing:2.2.0")
 }
