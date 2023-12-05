@@ -1,4 +1,4 @@
-package com.carlosolimpio.cstv.presentation.mainlist
+package com.carlosolimpio.cstv.presentation.mainlist.paging
 
 import androidx.recyclerview.widget.DiffUtil
 import com.carlosolimpio.cstv.domain.mainlist.Match

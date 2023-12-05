@@ -2,15 +2,14 @@ package com.carlosolimpio.cstv.di
 
 import com.carlosolimpio.cstv.data.mainlist.MainListRepositoryImpl
 import com.carlosolimpio.cstv.data.mainlist.remote.MainListService
-import com.carlosolimpio.cstv.data.mainlist.remote.paging.MatchesPagingSource
 import com.carlosolimpio.cstv.domain.mainlist.MainListRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
 @Module

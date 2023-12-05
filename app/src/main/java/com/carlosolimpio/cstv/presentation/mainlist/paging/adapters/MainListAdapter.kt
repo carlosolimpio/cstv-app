@@ -1,4 +1,4 @@
-package com.carlosolimpio.cstv.presentation.mainlist
+package com.carlosolimpio.cstv.presentation.mainlist.paging.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,7 +6,8 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.carlosolimpio.cstv.databinding.LayoutMatchItemBinding
 import com.carlosolimpio.cstv.domain.mainlist.Match
-import com.carlosolimpio.cstv.presentation.mainlist.MainListAdapter.MainListViewHolder
+import com.carlosolimpio.cstv.presentation.mainlist.paging.MainListDiffCallback
+import com.carlosolimpio.cstv.presentation.mainlist.paging.adapters.MainListAdapter.MainListViewHolder
 
 class MainListAdapter : PagingDataAdapter<Match, MainListViewHolder>(MainListDiffCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainListViewHolder {
@@ -15,7 +16,6 @@ class MainListAdapter : PagingDataAdapter<Match, MainListViewHolder>(MainListDif
             parent,
             false
         )
-
         return MainListViewHolder(binding)
     }
 

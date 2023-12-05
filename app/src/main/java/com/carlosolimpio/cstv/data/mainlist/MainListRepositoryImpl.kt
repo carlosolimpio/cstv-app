@@ -7,8 +7,8 @@ import com.carlosolimpio.cstv.data.mainlist.remote.MainListService
 import com.carlosolimpio.cstv.data.mainlist.remote.paging.MatchesPagingSource
 import com.carlosolimpio.cstv.domain.mainlist.MainListRepository
 import com.carlosolimpio.cstv.domain.mainlist.Match
-import kotlinx.coroutines.Dispatchers
 import javax.inject.Inject
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn
 
@@ -25,14 +25,5 @@ class MainListRepositoryImpl @Inject constructor(
             ),
             pagingSourceFactory = { MatchesPagingSource(apiService) }
         ).flow.flowOn(Dispatchers.IO)
-
-/*        apiService.getRunningMatchesList().handleResponse(
-            onSuccess = {
-                emit(DataResponse.Success(it.mapMatches()))
-            },
-            onError = {
-                emit(DataResponse.Error(it))
-            }
-        )*/
     }
 }

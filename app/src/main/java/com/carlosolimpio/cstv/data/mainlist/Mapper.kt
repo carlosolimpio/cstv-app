@@ -5,7 +5,11 @@ import com.carlosolimpio.cstv.domain.mainlist.League
 import com.carlosolimpio.cstv.domain.mainlist.Match
 import com.carlosolimpio.cstv.domain.mainlist.Team
 
-fun List<MatchDto>.mapToMatch() = this.map { it.toMatch() }
+fun List<MatchDto>.mapToMatch() = this.map { it.toMatch() }.filter { it.isValidMatch() }
+
+fun Match.isValidMatch(): Boolean {
+    return matchTime.isNotBlank() && teamA.name.isNotBlank() && teamB.name.isNotBlank()
+}
 
 fun MatchDto.toMatch(): Match {
     val teamA = teams.getOrNull(0)

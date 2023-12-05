@@ -25,7 +25,10 @@ class MatchesPagingSource(
         val pageIndex = params.key ?: STARTING_PAGE_INDEX
 
         return try {
-            val response = apiService.getUpcomingMatchesList(pageIndex, params.loadSize)
+            val response = apiService.getUpcomingMatchesList(
+                pageIndex = pageIndex,
+                pageSize = params.loadSize
+            )
             val matches = response.body() ?: emptyList()
 
             LoadResult.Page(
