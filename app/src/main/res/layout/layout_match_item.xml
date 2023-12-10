@@ -24,15 +24,15 @@
             <TextView
                 android:id="@+id/textMatchDate"
                 android:layout_width="wrap_content"
-                android:layout_height="25dp"
+                android:layout_height="26dp"
                 android:background="@drawable/match_date_shape"
-                android:gravity="center_horizontal|top"
                 android:padding="8dp"
                 android:textColor="@color/white"
                 android:textSize="8sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="AGORA" />
+                tools:text="AGORA"
+                tools:backgroundTint="@color/red" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline"

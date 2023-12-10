@@ -1,15 +1,16 @@
 package com.carlosolimpio.cstv.presentation.mainlist.paging.adapters
 
+import android.content.res.ColorStateList
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.RecyclerView
-import androidx.swiperefreshlayout.widget.CircularProgressDrawable
-import com.bumptech.glide.Glide
 import com.carlosolimpio.cstv.R
 import com.carlosolimpio.cstv.databinding.LayoutMatchItemBinding
 import com.carlosolimpio.cstv.domain.mainlist.Match
+import com.carlosolimpio.cstv.domain.mainlist.MatchStatus
+import com.carlosolimpio.cstv.presentation.common.parseDate
+import com.carlosolimpio.cstv.presentation.common.setImage
 import com.carlosolimpio.cstv.presentation.mainlist.paging.MainListDiffCallback
 import com.carlosolimpio.cstv.presentation.mainlist.paging.adapters.MainListAdapter.MainListViewHolder
 
@@ -31,6 +32,8 @@ class MainListAdapter : PagingDataAdapter<Match, MainListViewHolder>(MainListDif
         private val binding: LayoutMatchItemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(match: Match?) {
+            val context = binding.root.context
+
             binding.apply {
                 imageTeamAEmblem.setImage(match?.teamA?.imageUrl!!)
                 textTeamAName.text = match.teamA.name
@@ -39,24 +42,26 @@ class MainListAdapter : PagingDataAdapter<Match, MainListViewHolder>(MainListDif
                 textTeamBName.text = match.teamB.name
 
                 imageLeagueEmblem.setImage(match.league.imageUrl)
-                textLeagueSerie.text = "${match.league.name} ${match.serieName}"
+                textLeagueSerie.text = context.getString(
+                    R.string.league_serie,
+                    match.league.name,
+                    match.serieName
+                )
 
-                textMatchDate.text = match.matchTime
+                textMatchDate.apply {
+                    if (match.status == MatchStatus.RUNNING) {
+                        text = context.getString(R.string.agora)
+                        backgroundTintList = ColorStateList.valueOf(
+                            context.resources.getColor(R.color.red, null)
+                        )
+                    } else {
+                        text = match.matchTime.parseDate()
+                        backgroundTintList = ColorStateList.valueOf(
+                            context.resources.getColor(R.color.match_date, null)
+                        )
+                    }
+                }
             }
         }
     }
-}
-
-fun ImageView.setImage(imageUrl: String) {
-    val circularProgressDrawable = CircularProgressDrawable(context)
-    circularProgressDrawable.strokeWidth = 5f
-    circularProgressDrawable.centerRadius = 30f
-    circularProgressDrawable.start()
-
-    Glide.with(this)
-        .load(imageUrl)
-        .fitCenter()
-        .placeholder(circularProgressDrawable)
-        .error(R.drawable.icon_image_failed)
-        .into(this)
 }
