@@ -6,7 +6,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface MainListService {
-    @GET("matches/upcoming?token=${BuildConfig.PANDASCORE_TOKEN}")
+    @GET("matches?token=${BuildConfig.PANDASCORE_TOKEN}")
     suspend fun getUpcomingMatchesList(
         @Query("filter[status]") filter: String = "running,not_started",
         @Query("sort") sortedBy: String = "-status",
