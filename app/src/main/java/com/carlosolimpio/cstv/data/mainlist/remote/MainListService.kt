@@ -9,7 +9,7 @@ interface MainListService {
     @GET("matches?token=${BuildConfig.PANDASCORE_TOKEN}")
     suspend fun getUpcomingMatchesList(
         @Query("filter[status]") filter: String = "running,not_started",
-        @Query("sort") sortedBy: String = "-status",
+        @Query("sort") sortedBy: String = "-status,begin_at",
         @Query("page") pageIndex: Int,
         @Query("per_page") pageSize: Int
     ): Response<List<MatchDto>>
