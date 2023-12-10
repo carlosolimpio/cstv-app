@@ -64,7 +64,6 @@ dependencies {
 
     // Hilt
     implementation("com.google.dagger:hilt-android:2.48.1")
-    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     kapt("com.google.dagger:hilt-compiler:2.48.1")
     testImplementation("com.google.dagger:hilt-android-testing:2.48.1")
     kaptTest("com.google.dagger:hilt-compiler:2.48.1")
@@ -82,6 +81,9 @@ dependencies {
 
     // Paging
     implementation("androidx.paging:paging-runtime-ktx:3.2.1")
+
+    // SwipeRefresh
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
 
 
     // Testing

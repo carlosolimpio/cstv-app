@@ -50,18 +50,23 @@ class MainListFragment : Fragment() {
             )
             layoutManager = LinearLayoutManager(activity)
         }
+
+        binding.layoutSwipeRefresh.setOnRefreshListener {
+            listAdapter.refresh()
+            binding.layoutSwipeRefresh.isRefreshing = false
+        }
     }
 
     private fun collectUiState() {
         viewLifecycleOwner.lifecycleScope.launch {
-            mainListViewModel.fetchMainList().collect { state ->
+            mainListViewModel.fetchMainList().collectLatest { state ->
                 listAdapter.submitData(state)
             }
         }
 
         viewLifecycleOwner.lifecycleScope.launch {
             listAdapter.loadStateFlow.collectLatest { loadState ->
-                binding.progressBar.isVisible = loadState.source.refresh is LoadState.Loading
+                binding.progressBar.isVisible = loadState.refresh is LoadState.Loading
 
                 if (loadState.refresh is LoadState.Error) {
                     val message = (loadState.refresh as LoadState.Error).error.localizedMessage

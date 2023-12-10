@@ -35,7 +35,7 @@ object AppModule {
     fun provideRetrofitInstance(client: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .baseUrl(PANDASCORE_API_BASE_URL)
-            .client(client)
+//            .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
