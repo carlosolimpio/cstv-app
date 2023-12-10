@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -12,7 +13,7 @@ import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.carlosolimpio.cstv.databinding.FragmentMainListBinding
 import com.carlosolimpio.cstv.presentation.mainlist.paging.adapters.MainListAdapter
-import com.carlosolimpio.cstv.presentation.mainlist.paging.adapters.MainListLoadStateAdapter
+import com.carlosolimpio.cstv.presentation.mainlist.paging.adapters.MainListFooterLoadStateAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -45,7 +46,7 @@ class MainListFragment : Fragment() {
 
         with(binding.rvMatches) {
             adapter = listAdapter.withLoadStateFooter(
-                footer = MainListLoadStateAdapter()
+                footer = MainListFooterLoadStateAdapter()
             )
             layoutManager = LinearLayoutManager(activity)
         }
@@ -60,8 +61,11 @@ class MainListFragment : Fragment() {
 
         viewLifecycleOwner.lifecycleScope.launch {
             listAdapter.loadStateFlow.collectLatest { loadState ->
-                binding.apply {
-                    progressBar.isVisible = loadState.source.refresh is LoadState.Loading
+                binding.progressBar.isVisible = loadState.source.refresh is LoadState.Loading
+
+                if (loadState.refresh is LoadState.Error) {
+                    val message = (loadState.refresh as LoadState.Error).error.localizedMessage
+                    Toast.makeText(activity, message, Toast.LENGTH_LONG).show()
                 }
             }
         }

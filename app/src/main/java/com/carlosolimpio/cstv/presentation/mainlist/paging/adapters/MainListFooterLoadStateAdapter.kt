@@ -7,9 +7,9 @@ import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.carlosolimpio.cstv.databinding.LoadNextPageItemBinding
-import com.carlosolimpio.cstv.presentation.mainlist.paging.adapters.MainListLoadStateAdapter.LoadStateViewHolder
+import com.carlosolimpio.cstv.presentation.mainlist.paging.adapters.MainListFooterLoadStateAdapter.LoadStateViewHolder
 
-class MainListLoadStateAdapter : LoadStateAdapter<LoadStateViewHolder>() {
+class MainListFooterLoadStateAdapter : LoadStateAdapter<LoadStateViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, loadState: LoadState): LoadStateViewHolder {
         val binding = LoadNextPageItemBinding.inflate(
             LayoutInflater.from(parent.context),

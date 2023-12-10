@@ -8,14 +8,11 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/launchCard"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_margin="3dp"
-        android:layout_marginStart="3dp"
-        android:layout_marginEnd="3dp"
+        android:layout_height="176dp"
+        android:layout_margin="24dp"
         android:clickable="true"
-        app:cardCornerRadius="6dp"
-        app:cardElevation="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:cardBackgroundColor="@color/dark_blue"
+        app:cardCornerRadius="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -25,12 +22,120 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/textMatchDate"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:background="@drawable/match_date_shape"
+                android:gravity="center_horizontal|top"
+                android:padding="8dp"
+                android:textColor="@color/white"
+                android:textSize="8sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="AGORA" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="25dp" />
+
+            <ImageView
+                android:id="@+id/imageTeamAEmblem"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="20dp"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toTopOf="@+id/textTeamAName"
+                app:layout_constraintEnd_toStartOf="@+id/textVersus"
+                app:layout_constraintTop_toTopOf="@+id/guideline"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:srcCompat="@drawable/circle_placeholder" />
+
+            <TextView
+                android:id="@+id/textTeamAName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toTopOf="@+id/view"
+                app:layout_constraintEnd_toEndOf="@+id/imageTeamAEmblem"
+                app:layout_constraintStart_toStartOf="@+id/imageTeamAEmblem"
+                app:layout_constraintTop_toBottomOf="@+id/imageTeamAEmblem"
+                app:layout_constraintVertical_chainStyle="packed"
+
+                tools:text="Team A" />
+
+            <TextView
+                android:id="@+id/textVersus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/versus"
+                android:textColor="@color/gray"
+                app:layout_constraintBottom_toTopOf="@+id/view"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="@+id/guideline" />
+
+            <ImageView
+                android:id="@+id/imageTeamBEmblem"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="20dp"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toTopOf="@+id/textTeamBName"
+                app:layout_constraintStart_toEndOf="@+id/textVersus"
+                app:layout_constraintTop_toTopOf="@+id/guideline"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:srcCompat="@drawable/circle_placeholder" />
+
+            <TextView
+                android:id="@+id/textTeamBName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toTopOf="@+id/view"
+                app:layout_constraintEnd_toEndOf="@+id/imageTeamBEmblem"
+                app:layout_constraintStart_toStartOf="@+id/imageTeamBEmblem"
+                app:layout_constraintTop_toBottomOf="@+id/imageTeamBEmblem"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="Team B" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="32dp"
+                android:background="@color/gray"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageLeagueEmblem"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view"
+                app:srcCompat="@drawable/circle_placeholder" />
+
+            <TextView
+                android:id="@+id/textLeagueSerie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/white"
+                android:textSize="8sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageLeagueEmblem"
+                app:layout_constraintTop_toBottomOf="@+id/view"
+                tools:text="League + serie" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
