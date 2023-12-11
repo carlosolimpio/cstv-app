@@ -32,7 +32,11 @@ For unit testing there is a unit test for each feature view model (`MainListView
 
 ## Instruction to build the project
 
-This is a standard Android application, there are no special setup need. Just import the project into Android Studio and run the App.
+This is a standard Android application. To run the project you will need to follow the steps:
+- Import the project into Android Studio
+- Create a `local.properties` file under app project folder
+    - Inside the new file add the line: `pandascore_token="you panda score api token string here"`
+- Build and Run the project 
 
 ## Demo
 
