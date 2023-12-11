@@ -23,9 +23,13 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class MatchDetailsFragment(
-    private val matchData: Match
-) : Fragment() {
+class MatchDetailsFragment() : Fragment() {
+
+    private lateinit var matchData: Match
+
+    constructor(matchParam: Match) : this() {
+        matchData = matchParam
+    }
 
     private lateinit var binding: FragmentMatchDetailsBinding
     private val viewModel: MatchDetailsViewModel by viewModels()
@@ -55,6 +59,7 @@ class MatchDetailsFragment(
                     is UiState.Success -> {
                         hideProgress()
                         setUpViews(state.data)
+                        viewModel.saveMatchToState(state.data)
                     }
                     is UiState.Error -> {
                         hideProgress()

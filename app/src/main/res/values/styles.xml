@@ -39,6 +39,4 @@
     <style name="CSTV.MainList.TeamName" parent="CSTV.Title">
         <item name="android:textSize">10sp</item>
     </style>
-
-
 </resources>

@@ -4,6 +4,8 @@
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
         <item name="android:statusBarColor">@color/dark_purple_bg</item>
+        <item name="android:navigationBarColor">@color/dark_purple_bg</item>
+
     </style>
 
     <!-- Splash Screen Theme. -->
