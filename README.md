@@ -36,7 +36,11 @@ This is a standard Android application, there are no special setup need. Just im
 
 ## Demo
 
-TBD
+[Watch the demo video on Google Drive](https://drive.google.com/file/d/12P04Ai1y4wryNjQsyq-0Nxqz0cONPt87/view?usp=drive_link)
+
+<img src="https://github.com/carlosolimpio/cstv-app/assets/11680359/8ef80e0d-3805-4e99-8e65-28d1fb99c070" alt="drawing" width="300"/>
+<img src="https://github.com/carlosolimpio/cstv-app/assets/11680359/9cb8cb72-d450-45c8-ae8d-dcdf5fb16b90" alt="drawing" width="300"/>
+
 
 ## Libraries used
 
