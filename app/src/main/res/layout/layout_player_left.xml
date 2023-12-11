@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="174dp"
+    android:layout_height="59dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:background="@drawable/player_left_shape"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="horizontal" />
+
+    <ImageView
+        android:id="@+id/imagePlayerPicture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/player_image_placeholder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textNickNameLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/imagePlayerPicture"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/CSTV.MainList.MediumText"
+        tools:text="Nickname" />
+
+    <TextView
+        android:id="@+id/textFullNameLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/gray"
+        app:layout_constraintEnd_toEndOf="@+id/textNickNameLeft"
+        app:layout_constraintTop_toBottomOf="@+id/textNickNameLeft"
+        style="@style/CSTV.MainList.RegularText"
+        tools:text="Nome Jogador" />
+</androidx.constraintlayout.widget.ConstraintLayout>

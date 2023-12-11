@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.matchdetails.MatchDetailsFragment"
+    tools:background="@color/dark_purple_bg">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/matchDetailBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iconArrowBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:clickable="true"
+            android:src="@drawable/icon_arrow_back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textLeagueSerieDetail"
+            style="@style/CSTV.MatchDetail.Title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="@+id/iconArrowBack"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iconArrowBack"
+            app:layout_constraintTop_toTopOf="@+id/iconArrowBack"
+            tools:text="European Pro League Division 2 season 13 2023" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/imageTeamAEmblem"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="20dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/textTeamAName"
+        app:layout_constraintEnd_toStartOf="@+id/textVersus"
+        app:layout_constraintTop_toBottomOf="@+id/matchDetailBarLayout"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:srcCompat="@drawable/circle_placeholder" />
+
+    <TextView
+        android:id="@+id/textTeamAName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/imageTeamAEmblem"
+        app:layout_constraintStart_toStartOf="@+id/imageTeamAEmblem"
+        app:layout_constraintTop_toBottomOf="@+id/imageTeamAEmblem"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="Team A"
+        style="@style/CSTV.MainList.TeamName" />
+
+    <TextView
+        android:id="@+id/textVersus"
+        style="@style/CSTV.Versus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="134dp"
+        android:text="@string/versus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageTeamBEmblem"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="20dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/textTeamBName"
+        app:layout_constraintStart_toEndOf="@+id/textVersus"
+        app:layout_constraintTop_toBottomOf="@+id/matchDetailBarLayout"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:srcCompat="@drawable/circle_placeholder" />
+
+    <TextView
+        android:id="@+id/textTeamBName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/imageTeamBEmblem"
+        app:layout_constraintStart_toStartOf="@+id/imageTeamBEmblem"
+        app:layout_constraintTop_toBottomOf="@+id/imageTeamBEmblem"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="Team B"
+        style="@style/CSTV.MainList.TeamName" />
+
+    <TextView
+        android:id="@+id/textMatchDetailsDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="54dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textVersus"
+        style="@style/CSTV.MainList.RegularText"
+        tools:text="Hoje, 21:00" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/detailsGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.5"
+        android:orientation="vertical" />
+
+    <include
+        android:id="@+id/playerA1"
+        layout="@layout/layout_player_left"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="7dp"
+        app:layout_constraintEnd_toStartOf="@+id/detailsGuideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textMatchDetailsDate" />
+
+    <include
+        android:id="@+id/playerA2"
+        layout="@layout/layout_player_left"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="7dp"
+        app:layout_constraintEnd_toStartOf="@+id/detailsGuideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/playerA1" />
+
+    <include
+        android:id="@+id/playerA3"
+        layout="@layout/layout_player_left"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="7dp"
+        app:layout_constraintEnd_toStartOf="@+id/detailsGuideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/playerA2" />
+
+    <include
+        android:id="@+id/playerA4"
+        layout="@layout/layout_player_left"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="7dp"
+        app:layout_constraintEnd_toStartOf="@+id/detailsGuideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/playerA3" />
+
+    <include
+        android:id="@+id/playerA5"
+        layout="@layout/layout_player_left"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="7dp"
+        app:layout_constraintEnd_toStartOf="@+id/detailsGuideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/playerA4" />
+
+    <include
+        android:id="@+id/playerB1"
+        layout="@layout/layout_player_right"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="7dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/detailsGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/textMatchDetailsDate" />
+
+    <include
+        android:id="@+id/playerB2"
+        layout="@layout/layout_player_right"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="7dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/detailsGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/playerB1" />
+
+    <include
+        android:id="@+id/playerB3"
+        layout="@layout/layout_player_right"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="7dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/detailsGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/playerB2" />
+
+    <include
+        android:id="@+id/playerB4"
+        layout="@layout/layout_player_right"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="7dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/detailsGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/playerB3" />
+
+    <include
+        android:id="@+id/playerB5"
+        layout="@layout/layout_player_right"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="7dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/detailsGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/playerB4" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:indeterminateTint="@color/light_gray"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/matchDetailBarLayout" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,7 +2,10 @@ package com.carlosolimpio.cstv.di
 
 import com.carlosolimpio.cstv.data.mainlist.MainListRepositoryImpl
 import com.carlosolimpio.cstv.data.mainlist.remote.MainListService
+import com.carlosolimpio.cstv.data.matchdetails.MatchDetailsRepositoryImpl
+import com.carlosolimpio.cstv.data.matchdetails.remote.MatchDetailsService
 import com.carlosolimpio.cstv.domain.mainlist.MainListRepository
+import com.carlosolimpio.cstv.domain.matchdetails.MatchDetailsRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -12,7 +15,6 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-
 @InstallIn(SingletonComponent::class)
 @Module
 object AppModule {
@@ -48,7 +50,20 @@ object AppModule {
 
     @Singleton
     @Provides
+    fun provideMatchDetailsService(retrofit: Retrofit): MatchDetailsService {
+        return retrofit.create(MatchDetailsService::class.java)
+    }
+
+    @Singleton
+    @Provides
     fun provideMainListRepository(apiService: MainListService): MainListRepository {
         return MainListRepositoryImpl(apiService)
     }
+
+    @Singleton
+    @Provides
+    fun provideMatchDetailsRepository(apiService: MatchDetailsService): MatchDetailsRepository {
+        return MatchDetailsRepositoryImpl(apiService)
+    }
 }
+

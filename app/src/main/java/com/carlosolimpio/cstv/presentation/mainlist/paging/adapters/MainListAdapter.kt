@@ -14,7 +14,9 @@ import com.carlosolimpio.cstv.presentation.common.setImage
 import com.carlosolimpio.cstv.presentation.mainlist.paging.MainListDiffCallback
 import com.carlosolimpio.cstv.presentation.mainlist.paging.adapters.MainListAdapter.MainListViewHolder
 
-class MainListAdapter : PagingDataAdapter<Match, MainListViewHolder>(MainListDiffCallback()) {
+class MainListAdapter(
+    private val onMatchClick: (matchData: Match) -> Unit
+) : PagingDataAdapter<Match, MainListViewHolder>(MainListDiffCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainListViewHolder {
         val binding = LayoutMatchItemBinding.inflate(
             LayoutInflater.from(parent.context),
@@ -61,6 +63,8 @@ class MainListAdapter : PagingDataAdapter<Match, MainListViewHolder>(MainListDif
                         )
                     }
                 }
+
+                matchCard.setOnClickListener { onMatchClick(match) }
             }
         }
     }

@@ -18,7 +18,7 @@ fun MatchDto.toMatch(): Match {
     return Match(
         id = id,
         status = enumValueOf(status.uppercase()),
-        matchTime = matchTime ?: "", // parse to a proper string
+        matchTime = matchTime ?: "",
         league = League(
             name = league.name,
             imageUrl = league.imageUrl ?: ""

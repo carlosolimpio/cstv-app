@@ -20,11 +20,25 @@
         <item name="android:textSize">32sp</item>
     </style>
 
+    <style name="CSTV.MatchDetail.Title" parent="CSTV.Title">
+        <item name="android:textSize">18sp</item>
+    </style>
+
     <style name="CSTV.MainList.SmallText" parent="CSTV.Title">
         <item name="android:textSize">8sp</item>
+    </style>
+
+    <style name="CSTV.MainList.RegularText" parent="CSTV.Title">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="CSTV.MainList.MediumText" parent="CSTV.Title">
+        <item name="android:textSize">14sp</item>
     </style>
 
     <style name="CSTV.MainList.TeamName" parent="CSTV.Title">
         <item name="android:textSize">10sp</item>
     </style>
+
+
 </resources>

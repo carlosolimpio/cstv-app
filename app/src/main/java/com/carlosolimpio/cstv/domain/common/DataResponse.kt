@@ -1,4 +1,4 @@
-package com.carlosolimpio.cstv.data.common
+package com.carlosolimpio.cstv.domain.common
 
 sealed class DataResponse<out T : Any> {
     data class Success<out T : Any>(val data: T) : DataResponse<T>()

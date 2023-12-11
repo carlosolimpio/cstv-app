@@ -11,9 +11,12 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.carlosolimpio.cstv.R
 import com.carlosolimpio.cstv.databinding.FragmentMainListBinding
+import com.carlosolimpio.cstv.domain.mainlist.Match
 import com.carlosolimpio.cstv.presentation.mainlist.paging.adapters.MainListAdapter
 import com.carlosolimpio.cstv.presentation.mainlist.paging.adapters.MainListFooterLoadStateAdapter
+import com.carlosolimpio.cstv.presentation.matchdetails.MatchDetailsFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -42,7 +45,9 @@ class MainListFragment : Fragment() {
     }
 
     private fun initViews() {
-        listAdapter = MainListAdapter()
+        listAdapter = MainListAdapter(
+            onMatchClick = { matchData -> showMatchDetails(matchData) }
+        )
 
         with(binding.rvMatches) {
             adapter = listAdapter.withLoadStateFooter(
@@ -74,5 +79,13 @@ class MainListFragment : Fragment() {
                 }
             }
         }
+    }
+
+    private fun showMatchDetails(matchData: Match) {
+        parentFragmentManager
+            .beginTransaction()
+            .replace(R.id.container, MatchDetailsFragment(matchData), null)
+            .addToBackStack(null)
+            .commit()
     }
 }

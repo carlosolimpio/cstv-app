@@ -4,4 +4,6 @@
     <string name="league_serie">%1$s %2$s</string>
     <string name="agora">AGORA</string>
     <string name="partidas">Partidas</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
