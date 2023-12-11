@@ -34,11 +34,7 @@ class MatchesPagingSource(
             LoadResult.Page(
                 data = matches.mapToMatch(),
                 prevKey = if (pageIndex == STARTING_PAGE_INDEX) null else pageIndex - 1,
-                nextKey = if (matches.isNotEmpty()) {
-                    pageIndex + (params.loadSize / NETWORK_PAGE_SIZE)
-                } else {
-                    null
-                }
+                nextKey = if (matches.isNotEmpty()) pageIndex + 1 else null
             )
         } catch (ioe: IOException) {
             return LoadResult.Error(ioe)
