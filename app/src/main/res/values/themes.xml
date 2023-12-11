@@ -6,5 +6,13 @@
         <item name="android:statusBarColor">@color/dark_purple_bg</item>
     </style>
 
+    <!-- Splash Screen Theme. -->
+    <style name="Theme.CSTV.AppSplash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/dark_purple_bg</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher_foreground</item>
+        <item name="windowSplashScreenAnimationDuration">2500</item>
+        <item name="postSplashScreenTheme">@style/Base.Theme.CSTV</item>
+    </style>
+
     <style name="Theme.CSTV" parent="Base.Theme.CSTV" />
 </resources>

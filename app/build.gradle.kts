@@ -85,10 +85,11 @@ dependencies {
     // SwipeRefresh
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
 
+    // Splash Screen
+    implementation("androidx.core:core-splashscreen:1.0.1")
 
     // Testing
     testImplementation("junit:junit:4.13.2")
-//    testImplementation("org.mockito:mockito-core:2.25.0")
     testImplementation("io.mockk:mockk:1.13.7")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
     testImplementation("app.cash.turbine:turbine:1.0.0")
