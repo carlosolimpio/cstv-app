@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="CSTV.Base.TextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="CSTV.Versus" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="CSTV.Title" parent="CSTV.Base.TextAppearance">
+        <item name="android:lineSpacingExtra">2sp</item>
+        <item name="android:translationY">-1.25sp</item>
+    </style>
+
+    <style name="CSTV.MainList.Title" parent="CSTV.Title">
+        <item name="android:textSize">32sp</item>
+    </style>
+
+    <style name="CSTV.MainList.SmallText" parent="CSTV.Title">
+        <item name="android:textSize">8sp</item>
+    </style>
+
+    <style name="CSTV.MainList.TeamName" parent="CSTV.Title">
+        <item name="android:textSize">10sp</item>
+    </style>
+</resources>
