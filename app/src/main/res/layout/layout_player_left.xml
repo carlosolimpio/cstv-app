@@ -7,19 +7,19 @@
     android:background="@android:color/transparent">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="56dp"
         android:background="@drawable/player_left_shape"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:orientation="horizontal" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imagePlayerPicture"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
         android:layout_marginEnd="12dp"
         android:background="@drawable/player_image_placeholder"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,22 +27,28 @@
 
     <TextView
         android:id="@+id/textNickNameLeft"
-        android:layout_width="wrap_content"
+        style="@style/CSTV.MainList.MediumText"
+        android:layout_width="0dp"
+        android:textAlignment="textEnd"
         android:layout_height="wrap_content"
         android:layout_marginTop="19dp"
         android:layout_marginEnd="16dp"
+        android:maxLength="12"
         app:layout_constraintEnd_toStartOf="@+id/imagePlayerPicture"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
         app:layout_constraintTop_toTopOf="parent"
-        style="@style/CSTV.MainList.MediumText"
         tools:text="Nickname" />
 
     <TextView
         android:id="@+id/textFullNameLeft"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/gray"
-        app:layout_constraintEnd_toEndOf="@+id/textNickNameLeft"
-        app:layout_constraintTop_toBottomOf="@+id/textNickNameLeft"
         style="@style/CSTV.MainList.RegularText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="textEnd"
+        android:textColor="@color/gray"
+        android:maxLength="14"
+        app:layout_constraintEnd_toEndOf="@+id/textNickNameLeft"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textNickNameLeft"
         tools:text="Nome Jogador" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,7 +19,6 @@
         android:id="@+id/imagePlayerPicture"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
         android:layout_marginStart="12dp"
         android:background="@drawable/player_image_placeholder"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,10 +27,13 @@
     <TextView
         android:id="@+id/textNicknameRight"
         style="@style/CSTV.MainList.MediumText"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="19dp"
+        android:textAlignment="textStart"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="19dp"
+        android:maxLength="12"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imagePlayerPicture"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Nickname" />
@@ -39,9 +41,12 @@
     <TextView
         android:id="@+id/textFullNameRight"
         style="@style/CSTV.MainList.RegularText"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:textAlignment="textStart"
         android:textColor="@color/gray"
+        android:maxLength="14"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textNicknameRight"
         app:layout_constraintTop_toBottomOf="@+id/textNicknameRight"
         tools:text="Nome Jogador" />
