@@ -3,23 +3,24 @@ package com.carlosolimpio.cstv.presentation.common
 import java.time.DayOfWeek
 import java.time.LocalDate
 import java.time.LocalDateTime
+import java.time.ZoneId
+import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
 import java.util.Locale
 
 private const val UTC_PATTERN = "yyyy-MM-dd'T'HH:mm:ssX"
 
 fun String.parseDate(): String {
-    val dateTime = LocalDateTime.parse(this, DateTimeFormatter.ofPattern(UTC_PATTERN))
-    val isToday = dateTime.toLocalDate().equals(LocalDate.now())
-    val isInNextWeek = isInNextWeek(dateTime.toLocalDate())
+    val dateTime = convertFromUTCToLocalTime(this)
     val ptBrLocale = Locale("pt", "BR")
 
-    val formatter = if (isToday) {
-        DateTimeFormatter.ofPattern("'Hoje, 'HH:mm", ptBrLocale)
-    } else if (isInNextWeek) {
-        DateTimeFormatter.ofPattern("EEE', 'HH:mm", ptBrLocale)
-    } else {
-        DateTimeFormatter.ofPattern("dd.MM HH:mm", ptBrLocale)
+    val isToday = dateTime.toLocalDate().equals(LocalDate.now())
+    val isInNextWeek = isInNextWeek(dateTime.toLocalDate())
+
+    val formatter = when {
+        isToday -> DateTimeFormatter.ofPattern("'Hoje, 'HH:mm", ptBrLocale)
+        isInNextWeek -> DateTimeFormatter.ofPattern("EEE', 'HH:mm", ptBrLocale)
+        else -> DateTimeFormatter.ofPattern("dd.MM HH:mm", ptBrLocale)
     }
 
     val result = dateTime.format(formatter)
@@ -33,6 +34,12 @@ fun String.parseDate(): String {
 
 fun String.capitalize(): String {
     return this.lowercase().replaceFirstChar { it.uppercaseChar() }
+}
+
+private fun convertFromUTCToLocalTime(text: String): ZonedDateTime {
+    val utcDateTime = LocalDateTime.parse(text, DateTimeFormatter.ofPattern(UTC_PATTERN))
+    val utcZonedDateTime = ZonedDateTime.of(utcDateTime, ZoneId.of("UTC"))
+    return utcZonedDateTime.withZoneSameInstant(ZoneId.systemDefault())
 }
 
 private fun isInNextWeek(dateToCheck: LocalDate): Boolean {
